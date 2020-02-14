@@ -27,29 +27,30 @@ public class Length {
         this.unit = unit;
     }
 
-    public Length as(String targetUnit, Unit temp_unit) {
+
+    public Length as(Unit temp_unit) {
         Length length = this;
         if (this.unit == Unit.FOOT) {
             if (temp_unit == Unit.YARD) {
-                length = new Length(this.value / 3, targetUnit);
+                length = new Length(this.value / 3, temp_unit);
             } else if (temp_unit == Unit.INCH) {
-                length = new Length(this.value * 12, targetUnit);
+                length = new Length(this.value * 12, temp_unit);
             }
         }
 
         if (this.unit == Unit.YARD) {
             if (temp_unit == Unit.INCH) {
-                length = new Length(this.value * 36, targetUnit);
+                length = new Length(this.value * 36, temp_unit);
             } else if (temp_unit == Unit.FOOT) {
-                length = new Length(this.value * 3, targetUnit);
+                length = new Length(this.value * 3, temp_unit);
             }
         }
 
         if (this.unit == Unit.INCH) {
             if (temp_unit == Unit.FOOT) {
-                length = new Length(this.value / 12, targetUnit);
+                length = new Length(this.value / 12, temp_unit);
             } else if (temp_unit == Unit.YARD) {
-                length = new Length(this.value / 36, targetUnit);
+                length = new Length(this.value / 36, temp_unit);
             }
         }
 
