@@ -14,33 +14,9 @@ public class Length {
     }
 
 
-    public Length as(Unit unit) {
-        Length length = this;
-        if (this.unit == Unit.FOOT) {
-            if (unit == Unit.YARD) {
-                length = new Length(this.value / 3, unit);
-            } else if (unit == Unit.INCH) {
-                length = new Length(this.value * 12, unit);
-            }
-        }
-
-        if (this.unit == Unit.YARD) {
-            if (unit == Unit.INCH) {
-                length = new Length(this.value * 36, unit);
-            } else if (unit == Unit.FOOT) {
-                length = new Length(this.value * 3, unit);
-            }
-        }
-
-        if (this.unit == Unit.INCH) {
-            if (unit == Unit.FOOT) {
-                length = new Length(this.value / 12, unit);
-            } else if (unit == Unit.YARD) {
-                length = new Length(this.value / 36, unit);
-            }
-        }
-
-        return length;
+    public Length as(Unit targetUnit) {
+        double ratio = this.unit.getRatio(targetUnit);
+        return  new Length(this.value*ratio,targetUnit);
     }
 
     public double getValue() {
