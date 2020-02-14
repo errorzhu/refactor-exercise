@@ -22,7 +22,10 @@ public class Length {
         }
     }
 
-
+    public Length(double value, Unit unit) {
+        this.value = value;
+        this.unit = unit;
+    }
 
     public Length as(String targetUnit, Unit temp_unit) {
         Length length = this;
