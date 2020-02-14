@@ -5,12 +5,12 @@ public class Length {
     public static final String YARD = "yard";
 
     private final double value;
-    private final String unit;
+    
     private Unit temp_unit;
 
     public Length(double value, String unit) {
         this.value = value;
-        this.unit = unit;
+
         if (unit.equals(FOOT)) {
             temp_unit = Unit.FOOT;
         }
@@ -55,7 +55,8 @@ public class Length {
         return this.value;
     }
 
-    public String getUint() {
-        return this.unit;
+
+    public Unit getTemp_unit() {
+        return temp_unit;
     }
 }
