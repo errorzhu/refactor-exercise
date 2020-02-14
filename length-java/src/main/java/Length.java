@@ -8,20 +8,6 @@ public class Length {
 
     private Unit unit;
 
-    public Length(double value, String unit) {
-        this.value = value;
-
-        if (unit.equals(FOOT)) {
-            this.unit = Unit.FOOT;
-        }
-        if (unit.equals(YARD)) {
-            this.unit = Unit.YARD;
-        }
-        if (unit.equals(INCH)) {
-            this.unit = Unit.INCH;
-        }
-    }
-
     public Length(double value, Unit unit) {
         this.value = value;
         this.unit = unit;
