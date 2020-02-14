@@ -1,9 +1,5 @@
 public class Length {
 
-    public static final String INCH = "inch";
-    public static final String FOOT = "f";
-    public static final String YARD = "yard";
-
     private final double value;
 
     private Unit unit;
