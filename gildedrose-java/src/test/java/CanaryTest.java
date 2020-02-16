@@ -24,6 +24,6 @@ public class CanaryTest {
         assertThat(doubled, is(newArrayList(2, 4, 6, 8, 10)));
 
         String src = Files.toString(new File("src/test/java/CanaryTest.java"), UTF_8);
-        assertThat(src.length(), is(954));
+        assertThat(src.length(), is(983));
     }
 }
