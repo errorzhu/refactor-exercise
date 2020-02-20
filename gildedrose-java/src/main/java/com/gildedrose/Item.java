@@ -47,33 +47,17 @@ public class Item {
 
     }
 
-    private void updateQuality() {
-        if (!isAgedBrie()
-                && !isPass()) {
-            if (this.quality > 0) {
-                if (!isSul()) {
-                    this.quality = this.quality - 1;
-                }
-            }
-        } else {
-            if (this.quality < 50) {
-                this.quality = this.quality + 1;
+    protected void updateQuality() {
 
-                if (isPass()) {
-                    if (this.sellIn < 11) {
-                        if (this.quality < 50) {
-                            this.quality = this.quality + 1;
-                        }
-                    }
 
-                    if (this.sellIn < 6) {
-                        if (this.quality < 50) {
-                            this.quality = this.quality + 1;
-                        }
-                    }
-                }
+
+        if (this.quality > 0) {
+            if (!isSul()) {
+                this.quality = this.quality - 1;
             }
         }
+
+
     }
 
     protected boolean isSul() {
