@@ -42,19 +42,13 @@ public class Item {
     }
 
     protected void updateSellIn() {
-
         this.sellIn = this.sellIn - 1;
-
     }
 
     protected void updateQuality() {
 
-
-
         if (this.quality > 0) {
-            if (!isSul()) {
-                this.quality = this.quality - 1;
-            }
+            this.quality = this.quality - 1;
         }
 
 
