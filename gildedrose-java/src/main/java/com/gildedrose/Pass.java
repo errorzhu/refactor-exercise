@@ -8,4 +8,6 @@ public class Pass extends Item {
     protected boolean isPass() {
         return true;
     }
+
+
 }

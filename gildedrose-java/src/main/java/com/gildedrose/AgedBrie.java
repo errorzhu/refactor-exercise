@@ -5,7 +5,8 @@ public class AgedBrie extends Item {
         super(name, sellIn, quality);
     }
 
-    protected boolean isAgedBrie(){
+    protected boolean isAgedBrie() {
         return true;
     }
+
 }

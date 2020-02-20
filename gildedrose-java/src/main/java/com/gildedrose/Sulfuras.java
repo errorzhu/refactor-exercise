@@ -9,4 +9,8 @@ public class Sulfuras extends Item {
     protected boolean isSul() {
         return true;
     }
+
+    protected void updateSellIn() {
+
+    }
 }

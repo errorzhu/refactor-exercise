@@ -41,10 +41,10 @@ public class Item {
         }
     }
 
-    private void updateSellIn() {
-        if (!isSul()) {
-            this.sellIn = this.sellIn - 1;
-        }
+    protected void updateSellIn() {
+
+        this.sellIn = this.sellIn - 1;
+
     }
 
     private void updateQuality() {
