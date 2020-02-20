@@ -21,23 +21,17 @@ public class Item {
         updateQualityExpireSellIn();
     }
 
-    private void updateQualityExpireSellIn() {
+    protected void updateQualityExpireSellIn() {
         if (this.sellIn < 0) {
-            if (!isAgedBrie()) {
-                if (!isPass()) {
-                    if (this.quality > 0) {
-                        if (!isSul()) {
-                            this.quality = this.quality - 1;
-                        }
-                    }
-                } else {
-                    this.quality = 0;
-                }
-            } else {
-                if (this.quality < 50) {
-                    this.quality = this.quality + 1;
-                }
+
+
+            if (this.quality > 0) {
+
+                this.quality = this.quality - 1;
+
             }
+
+
         }
     }
 
@@ -54,19 +48,7 @@ public class Item {
 
     }
 
-    protected boolean isSul() {
-        return false;
-    }
-
-    protected boolean isPass() {
-        return false;
-    }
-
-    protected boolean isAgedBrie() {
-        return false;
-    }
-
-
+    
     @Override
     public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;

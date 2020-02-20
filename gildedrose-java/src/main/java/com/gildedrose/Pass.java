@@ -29,4 +29,14 @@ public class Pass extends Item {
 
     }
 
+
+    protected void updateQualityExpireSellIn() {
+
+        if (this.sellIn < 0) {
+            this.quality = 0;
+        }
+
+
+    }
+
 }
