@@ -5,9 +5,6 @@ public class AgedBrie extends Item {
         super(name, sellIn, quality);
     }
 
-    protected boolean isAgedBrie() {
-        return true;
-    }
 
     protected void updateQuality() {
         if (this.quality < 50) {
@@ -16,13 +13,13 @@ public class AgedBrie extends Item {
     }
 
     protected void updateQualityExpireSellIn() {
-        if (this.sellIn < 0) {
 
-            if (this.quality < 50) {
-                this.quality = this.quality + 1;
-            }
 
+        if (this.quality < 50) {
+            this.quality = this.quality + 1;
         }
+
     }
+
 
 }

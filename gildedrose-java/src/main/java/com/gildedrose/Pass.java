@@ -5,9 +5,6 @@ public class Pass extends Item {
         super(name, sellIn, quality);
     }
 
-    protected boolean isPass() {
-        return true;
-    }
 
     protected void updateQuality() {
         if (this.quality < 50) {
@@ -32,9 +29,8 @@ public class Pass extends Item {
 
     protected void updateQualityExpireSellIn() {
 
-        if (this.sellIn < 0) {
-            this.quality = 0;
-        }
+
+        this.quality = 0;
 
 
     }

@@ -6,9 +6,6 @@ public class Sulfuras extends Item {
         super(name, sellIn, quality);
     }
 
-    protected boolean isSul() {
-        return true;
-    }
 
     protected void updateSellIn() {
 

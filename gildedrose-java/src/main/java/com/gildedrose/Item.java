@@ -17,15 +17,22 @@ public class Item {
     public void update() {
         updateQuality();
         updateSellIn();
-        updateQualityExpireSellIn();
+        if (isExpired()) {
+            updateQualityExpireSellIn();
+        }
+
     }
 
     protected void updateQualityExpireSellIn() {
-        if (this.sellIn < 0) {
-            if (this.quality > 0) {
-                this.quality = this.quality - 1;
-            }
+
+        if (this.quality > 0) {
+            this.quality = this.quality - 1;
         }
+    }
+
+
+    private boolean isExpired() {
+        return this.sellIn < 0;
     }
 
     protected void updateSellIn() {
