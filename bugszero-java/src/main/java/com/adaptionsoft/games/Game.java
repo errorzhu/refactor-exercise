@@ -30,10 +30,6 @@ public class Game {
 		return "Rock Question " + index;
 	}
 
-	public boolean isPlayable() {
-		return (howManyPlayers() >= 2);
-	}
-
 	public boolean add(String playerName) {
 
 
@@ -85,13 +81,13 @@ public class Game {
 	}
 
 	private void askQuestion() {
-		if (currentCategory() == "Pop")
+		if (currentCategory().equals("Pop"))
 			System.out.println(popQuestions.removeFirst());
-		if (currentCategory() == "Science")
+		if (currentCategory().equals("Science"))
 			System.out.println(scienceQuestions.removeFirst());
-		if (currentCategory() == "Sports")
+		if (currentCategory().equals("Sports"))
 			System.out.println(sportsQuestions.removeFirst());
-		if (currentCategory() == "Rock")
+		if (currentCategory().equals("Rock"))
 			System.out.println(rockQuestions.removeFirst());
 	}
 
@@ -109,7 +105,7 @@ public class Game {
 		return "Rock";
 	}
 
-	public boolean wasCorrectlyAnswered() {
+	boolean wasCorrectlyAnswered() {
 		if (inPenaltyBox[currentPlayer]){
 			if (isGettingOutOfPenaltyBox) {
 				System.out.println("Answer was correct!!!!");
@@ -121,9 +117,7 @@ public class Game {
 						+ purses[currentPlayer]
 						+ " Gold Coins.");
 
-				boolean winner = didPlayerWin();
-
-				return winner;
+				return didPlayerWin();
 			} else {
 				currentPlayer++;
 				if (currentPlayer == players.size()) currentPlayer = 0;
@@ -149,7 +143,7 @@ public class Game {
 		}
 	}
 
-	public boolean wrongAnswer(){
+	boolean wrongAnswer(){
 		System.out.println("Question was incorrectly answered");
 		System.out.println(players.get(currentPlayer)+ " was sent to the penalty box");
 		inPenaltyBox[currentPlayer] = true;
