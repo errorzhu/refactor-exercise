@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Game {
-    ArrayList<Player> tempPlayer = new ArrayList();
+    ArrayList<Player> players = new ArrayList();
     int[] places = new int[6];
     int[] gold = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
@@ -32,7 +32,7 @@ public class Game {
 
 	public boolean add(String playerName) {
 
-        tempPlayer.add(new Player(playerName));
+        players.add(new Player(playerName));
 	    places[howManyPlayers()] = 0;
 	    gold[howManyPlayers()] = 0;
 	    inPenaltyBox[howManyPlayers()] = false;
@@ -43,7 +43,7 @@ public class Game {
 	}
 
     private int getPlayerSize() {
-        return tempPlayer.size();
+        return players.size();
     }
 
     public int howManyPlayers() {
@@ -77,7 +77,7 @@ public class Game {
 	}
 
 	private String getCurrenPlayer() {
-		return tempPlayer.get(currentPlayer).getName();
+		return players.get(currentPlayer).getName();
 	}
 
 	private void movePlayerAndAskQuestion(int roll) {
