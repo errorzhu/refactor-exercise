@@ -21,6 +21,10 @@ public class Player {
 
     public void increaseOneGold() {
         this.gold++;
+        System.out.println(name
+                + " now has "
+                + gold
+                + " Gold Coins.");
     }
 
     public int getPlace() {
@@ -30,13 +34,17 @@ public class Player {
     public void move(int roll) {
         place = place + roll;
         if (place > 11) place = place - 12;
+
+        System.out.println(name
+                + "'s new location is "
+                + place);
     }
 
     public boolean isInPenaltyBox() {
         return inPenaltyBox;
     }
 
-    public void moveToPenaltyBox(){
+    public void moveToPenaltyBox() {
         inPenaltyBox = true;
 
     }

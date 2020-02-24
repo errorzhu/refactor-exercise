@@ -73,9 +73,7 @@ public class Game {
 	private void movePlayerAndAskQuestion(int roll) {
 		getCurrentPlayer().move(roll);
 
-		System.out.println(getCurrenPlayerName()
-                + "'s new location is "
-                + getCurrentPlace());
+
 		System.out.println("The category is " + currentCategory());
 		askQuestion();
 	}
@@ -118,10 +116,6 @@ public class Game {
 				currentPlayer++;
 				if (currentPlayer == getPlayerSize()) currentPlayer = 0;
 				getCurrentPlayer().increaseOneGold();
-				System.out.println(getCurrenPlayerName()
-						+ " now has "
-						+ getCurrentPlayer().getGold()
-						+ " Gold Coins.");
 
 				return didPlayerWin();
 			} else {
@@ -136,10 +130,7 @@ public class Game {
 
 			System.out.println("Answer was corrent!!!!");
 			getCurrentPlayer().increaseOneGold();
-			System.out.println(getCurrenPlayerName()
-					+ " now has "
-					+ getCurrentPlayer().getGold()
-					+ " Gold Coins.");
+
 
 			boolean winner = didPlayerWin();
 			currentPlayer++;
