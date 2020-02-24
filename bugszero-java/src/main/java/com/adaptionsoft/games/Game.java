@@ -72,9 +72,6 @@ public class Game {
 
 	private void movePlayerAndAskQuestion(int roll) {
 		getCurrentPlayer().move(roll);
-
-
-		System.out.println("The category is " + currentCategory());
 		askQuestion();
 	}
 
@@ -85,6 +82,8 @@ public class Game {
 	}
 
 	private void askQuestion() {
+		System.out.println("The category is " + currentCategory());
+
 		if (currentCategory().equals("Pop"))
 			System.out.println(popQuestions.removeFirst());
 		if (currentCategory().equals("Science"))
@@ -113,14 +112,12 @@ public class Game {
 		if (getCurrentPlayer().isInPenaltyBox()){
 			if (isGettingOutOfPenaltyBox) {
 				System.out.println("Answer was correct!!!!");
-				currentPlayer++;
-				if (currentPlayer == getPlayerSize()) currentPlayer = 0;
+				updateCurrentPlayer();
 				getCurrentPlayer().increaseOneGold();
 
 				return didPlayerWin();
 			} else {
-				currentPlayer++;
-				if (currentPlayer == getPlayerSize()) currentPlayer = 0;
+				updateCurrentPlayer();
 				return true;
 			}
 
@@ -133,11 +130,15 @@ public class Game {
 
 
 			boolean winner = didPlayerWin();
-			currentPlayer++;
-			if (currentPlayer == getPlayerSize()) currentPlayer = 0;
+			updateCurrentPlayer();
 
 			return winner;
 		}
+	}
+
+	private void updateCurrentPlayer() {
+		currentPlayer++;
+		if (currentPlayer == getPlayerSize()) currentPlayer = 0;
 	}
 
 
@@ -147,13 +148,12 @@ public class Game {
 
 		getCurrentPlayer().moveToPenaltyBox();
 
-		currentPlayer++;
-		if (currentPlayer == getPlayerSize()) currentPlayer = 0;
+		updateCurrentPlayer();
 		return true;
 	}
 
 
 	private boolean didPlayerWin() {
-		return !(getCurrentPlayer().getGold() == 6);
+		return getCurrentPlayer().getGold() != 6;
 	}
 }
