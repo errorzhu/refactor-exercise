@@ -61,9 +61,6 @@ public class Game {
 
 	}
 
-	private boolean isInPenaltyBox() {
-		return getCurrentPlayer().isInPenaltyBox();
-	}
 
 	private String getCurrenPlayerName() {
 		return getCurrentPlayer().getName();
@@ -115,7 +112,7 @@ public class Game {
 	}
 
 	boolean wasCorrectlyAnswered() {
-		if (isInPenaltyBox()){
+		if (getCurrentPlayer().isInPenaltyBox()){
 			if (isGettingOutOfPenaltyBox) {
 				System.out.println("Answer was correct!!!!");
 				currentPlayer++;
