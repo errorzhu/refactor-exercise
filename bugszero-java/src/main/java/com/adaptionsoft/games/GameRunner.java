@@ -24,14 +24,19 @@ public class GameRunner {
 
 		do {
 
-			aGame.roll(rand.nextInt(5) + 1);
+			boolean inPenaltyBox = aGame.roll(rand.nextInt(5) + 1);
 
-			if (rand.nextInt(9) == 7) {
-				notAWinner = aGame.wrongAnswer();
-			} else {
-				notAWinner = aGame.wasCorrectlyAnswered();
-				aGame.nextPlayer();
+			boolean wrong = rand.nextInt(9) == 7;
+			if(!inPenaltyBox){
+				if (wrong) {
+					notAWinner = aGame.wrongAnswer();
+				} else {
+					notAWinner = aGame.wasCorrectlyAnswered();
+				}
 			}
+
+			aGame.nextPlayer();
+
 
 
 
