@@ -112,8 +112,8 @@ public class Game {
 		if (getCurrentPlayer().isInPenaltyBox()){
 			if (isGettingOutOfPenaltyBox) {
 				System.out.println("Answer was correct!!!!");
-				updateCurrentPlayer();
 				getCurrentPlayer().increaseOneGold();
+				updateCurrentPlayer();
 
 				return didPlayerWin();
 			} else {
