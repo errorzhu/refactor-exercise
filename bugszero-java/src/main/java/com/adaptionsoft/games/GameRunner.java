@@ -30,6 +30,7 @@ public class GameRunner {
 				notAWinner = aGame.wrongAnswer();
 			} else {
 				notAWinner = aGame.wasCorrectlyAnswered();
+				aGame.nextPlayer();
 			}
 
 

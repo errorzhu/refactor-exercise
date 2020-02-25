@@ -113,11 +113,12 @@ public class Game {
 			if (isGettingOutOfPenaltyBox) {
 				System.out.println("Answer was correct!!!!");
 				getCurrentPlayer().increaseOneGold();
-				updateCurrentPlayer();
+				boolean win = didPlayerWin();
 
-				return didPlayerWin();
+
+				return win;
 			} else {
-				updateCurrentPlayer();
+
 				return true;
 			}
 
@@ -130,13 +131,12 @@ public class Game {
 
 
 			boolean winner = didPlayerWin();
-			updateCurrentPlayer();
 
 			return winner;
 		}
 	}
 
-	private void updateCurrentPlayer() {
+	public void nextPlayer() {
 		currentPlayer++;
 		if (currentPlayer == getPlayerSize()) currentPlayer = 0;
 	}
@@ -148,7 +148,7 @@ public class Game {
 
 		getCurrentPlayer().moveToPenaltyBox();
 
-		updateCurrentPlayer();
+		nextPlayer();
 		return true;
 	}
 
