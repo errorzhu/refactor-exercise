@@ -5,27 +5,17 @@ import java.util.LinkedList;
 
 public class Game {
     private ArrayList<Player> players = new ArrayList();
-    private Deck deck = new Deck();
-    LinkedList scienceQuestions = new LinkedList();
-    LinkedList sportsQuestions = new LinkedList();
-    LinkedList rockQuestions = new LinkedList();
+    private Deck popDeck = new Deck("Pop");
+    private Deck scienceDeck = new Deck("Science");
+    private Deck rockDeck = new Deck("Rock");
+    private Deck sportsDeck = new Deck("Sports");
 
     int currentPlayer = 0;
 
-    public Game() {
-        for (int i = 0; i < 50; i++) {
-
-            scienceQuestions.addLast(("Science Question " + i));
-            sportsQuestions.addLast(("Sports Question " + i));
-            rockQuestions.addLast(createRockQuestion(i));
-        }
-    }
 
 
 
-    public String createRockQuestion(int index) {
-        return "Rock Question " + index;
-    }
+
 
     public boolean add(String playerName) {
 
@@ -91,13 +81,13 @@ public class Game {
         System.out.println("The category is " + category);
 
         if (category.equals(categories[0]))
-            System.out.println(deck.popQuestions.removeFirst());
+            System.out.println(popDeck.getNextQuestion());
         if (category.equals(categories[1]))
-            System.out.println(scienceQuestions.removeFirst());
+            System.out.println(scienceDeck.getNextQuestion());
         if (category.equals(categories[2]))
-            System.out.println(sportsQuestions.removeFirst());
+            System.out.println(sportsDeck.getNextQuestion());
         if (category.equals(categories[3]))
-            System.out.println(rockQuestions.removeFirst());
+            System.out.println(rockDeck.getNextQuestion());
     }
 
 
