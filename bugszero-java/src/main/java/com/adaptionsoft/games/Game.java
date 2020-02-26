@@ -6,17 +6,13 @@ import java.util.LinkedList;
 public class Game {
     private ArrayList<Player> players = new ArrayList();
     private DeckManager dm = new DeckManager();
-
-
     int currentPlayer = 0;
-
-
-    public boolean add(String playerName) {
+    public void add(String playerName) {
 
         players.add(new Player(playerName));
-        System.out.println(playerName + " was added");
+
         System.out.println("They are player number " + getPlayerSize());
-        return true;
+        
     }
 
     private int getPlayerSize() {
