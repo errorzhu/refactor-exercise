@@ -5,16 +5,10 @@ import java.util.LinkedList;
 
 public class Game {
     private ArrayList<Player> players = new ArrayList();
-    private Deck popDeck = new Deck("Pop");
-    private Deck scienceDeck = new Deck("Science");
-    private Deck rockDeck = new Deck("Rock");
-    private Deck sportsDeck = new Deck("Sports");
+    private DeckManager dm = new DeckManager();
+
 
     int currentPlayer = 0;
-
-
-
-
 
 
     public boolean add(String playerName) {
@@ -76,19 +70,12 @@ public class Game {
 
     private void askQuestion() {
 
-        String[] categories = {"Pop", "Science", "Sports", "Rock"};
-        String category = categories[getCurrentPlace() % categories.length];
-        System.out.println("The category is " + category);
+        String question = dm.getNextQuestion(getCurrentPlace());
+        System.out.println(question);
 
-        if (category.equals(categories[0]))
-            System.out.println(popDeck.getNextQuestion());
-        if (category.equals(categories[1]))
-            System.out.println(scienceDeck.getNextQuestion());
-        if (category.equals(categories[2]))
-            System.out.println(sportsDeck.getNextQuestion());
-        if (category.equals(categories[3]))
-            System.out.println(rockDeck.getNextQuestion());
     }
+
+
 
 
     boolean wasCorrectlyAnswered() {
