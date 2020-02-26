@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 public class Game {
     private ArrayList<Player> players = new ArrayList();
-    LinkedList popQuestions = new LinkedList();
+    private Deck deck = new Deck();
     LinkedList scienceQuestions = new LinkedList();
     LinkedList sportsQuestions = new LinkedList();
     LinkedList rockQuestions = new LinkedList();
@@ -14,12 +14,14 @@ public class Game {
 
     public Game() {
         for (int i = 0; i < 50; i++) {
-            popQuestions.addLast("Pop Question " + i);
+
             scienceQuestions.addLast(("Science Question " + i));
             sportsQuestions.addLast(("Sports Question " + i));
             rockQuestions.addLast(createRockQuestion(i));
         }
     }
+
+
 
     public String createRockQuestion(int index) {
         return "Rock Question " + index;
@@ -64,8 +66,6 @@ public class Game {
     }
 
 
-
-
     private String getCurrenPlayerName() {
         return getCurrentPlayer().getName();
     }
@@ -85,34 +85,24 @@ public class Game {
     }
 
     private void askQuestion() {
-        System.out.println("The category is " + currentCategory());
 
-        if (currentCategory().equals("Pop"))
-            System.out.println(popQuestions.removeFirst());
-        if (currentCategory().equals("Science"))
+        String[] categories = {"Pop", "Science", "Sports", "Rock"};
+        String category = categories[getCurrentPlace() % categories.length];
+        System.out.println("The category is " + category);
+
+        if (category.equals(categories[0]))
+            System.out.println(deck.popQuestions.removeFirst());
+        if (category.equals(categories[1]))
             System.out.println(scienceQuestions.removeFirst());
-        if (currentCategory().equals("Sports"))
+        if (category.equals(categories[2]))
             System.out.println(sportsQuestions.removeFirst());
-        if (currentCategory().equals("Rock"))
+        if (category.equals(categories[3]))
             System.out.println(rockQuestions.removeFirst());
     }
 
 
-    private String currentCategory() {
-        if (getCurrentPlace() == 0) return "Pop";
-        if (getCurrentPlace() == 4) return "Pop";
-        if (getCurrentPlace() == 8) return "Pop";
-        if (getCurrentPlace() == 1) return "Science";
-        if (getCurrentPlace() == 5) return "Science";
-        if (getCurrentPlace() == 9) return "Science";
-        if (getCurrentPlace() == 2) return "Sports";
-        if (getCurrentPlace() == 6) return "Sports";
-        if (getCurrentPlace() == 10) return "Sports";
-        return "Rock";
-    }
-
     boolean wasCorrectlyAnswered() {
-        if (getCurrentPlayer().isInPenaltyBox() ) {
+        if (getCurrentPlayer().isInPenaltyBox()) {
             return true;
         }
         answerCorrect();
